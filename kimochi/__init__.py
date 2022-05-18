@@ -29,37 +29,33 @@ class Client:
         async with self.session.get(f'https://api.otakugifs.xyz/gif?reaction={reaction}') as response:
             return BaseObject(await response.json(), reaction)
 
-    @property
+
     async def kiss(self) -> BaseObject:
         return await self.__request('kiss')
 
-    @property
     async def hug(self) -> BaseObject:
         return await self.__request('hug')
 
-    @property
     async def pat(self) -> BaseObject:
         return await self.__request('pat')
 
-    @property
     async def slap(self) -> BaseObject:
         return await self.__request('slap')
 
-    @property
     async def poke(self) -> BaseObject:
         return await self.__request('poke')
 
-    @property
     async def cuddle(self) -> BaseObject:
         return await self.__request('cuddle')
 
-    @property
     async def lick(self) -> BaseObject:
         return await self.__request('lick')
 
-    @property
     async def bite(self) -> BaseObject:
         return await self.__request('bite')
+
+    async def get(self, reaction: str) -> BaseObject:
+        return await self.__request(reaction)
 
     async def close(self):
         if self.session is not None:
