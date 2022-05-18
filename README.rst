@@ -34,7 +34,7 @@ Quick Example
   
   client = kimochi.Client()
   async def kiss():
-      return await client.kiss
+      return await client.kiss()
 
  print(asyncio.run(kiss()))
 .. code:: sh
